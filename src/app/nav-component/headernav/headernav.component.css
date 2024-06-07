@@ -1,0 +1,13 @@
+.btn-logout{
+    font-size: 14px;
+    color: #262F7C;
+    font-weight: 600;
+}
+.btn-logout .material-icons{
+    font-size: 16px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    margin-right:5px !important;
+    vertical-align:sub;
+    line-height: 0 !important;
+}

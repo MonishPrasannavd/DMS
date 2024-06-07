@@ -1,0 +1,64 @@
+.content-details table thead tr th{
+    font-size: 13px;
+    font-weight: 500;
+}
+.content-details table tbody tr td{
+    font-size: 13px;
+    padding: 4px 4px !important;
+}
+.content-details table thead{
+    border-bottom: 1px solid rgba(38, 128, 235, 0.6);
+}
+.content-details table tbody tr{
+    border-bottom: 1px solid rgba(38, 128, 235, 0.35) !important; 
+}
+.content-details table{
+    text-align: start;
+}
+
+.table-darg img{
+    width: 7%;
+    margin-top: 20px;
+}
+.table-darg p{
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.table > tbody > tr:nth-child(n+1)>td:nth-child(2){
+width: 90px;
+}
+.table > thead > tr:nth-child(n+1)>th:nth-child(2){
+  width: 90px;
+}
+.table > thead > tr:nth-child(n+1)>th:nth-child(3){
+  padding-left: 4vw !important;
+  width: 70px;
+}
+.table > tbody > tr:nth-child(n+1)>td:nth-child(3){
+    padding-left: 4vw !important;
+    width: 70px;
+}
+.table > thead > tr:nth-child(n+1)>th:nth-child(4){
+    padding-left: 3vw !important;
+    width: 250px;
+  }
+  .table > tbody > tr:nth-child(n+1)>td:nth-child(4){
+      padding-left: 3vw !important;
+      width:250px;
+  }
+  .table > thead > tr:nth-child(n+1)>th:nth-child(5){
+    padding-left: 3vw !important;
+    width: 150px;
+  }
+  .table > tbody > tr:nth-child(n+1)>td:nth-child(5){
+      padding-left: 3vw !important;
+      width: 150px;
+  }
+  .table > thead > tr:nth-child(n+1)>th:nth-child(6){
+   text-align: end;
+  }
+  .table > tbody > tr:nth-child(n+1)>td:nth-child(6){
+    text-align: end;
+  }

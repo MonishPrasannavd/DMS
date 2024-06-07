@@ -1,0 +1,1830 @@
+<div class="home-container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12 p-0">
+                <app-headernav></app-headernav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 col-md-1 m-0 p-0 pe-1">
+                <app-sidenav></app-sidenav>
+            </div>
+            <!-- main content -->
+            <div class="col-11 col-md-11 p-0">
+                <div class="bg-light">
+                    <div class="row">
+                        <div class="col-12 col-md-12 text-center">
+                            <div class="dark-bg">
+                                <h5>Files & Folders</h5>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12 mt-3">
+                            <div class="row justify-content-start">
+                                <div class="col-2 col-md-2 p-0 text-center">
+                                    <button class="create-btn btn" (click)="openSm(content)">
+                                        <img src="../../../assets/icons/folder.svg" alt=""> Create Folder
+                                    </button>
+                                </div>
+                                <div class="col-5 col-md-4 p-0 text-start">
+                                    <div class="input-group shadow-sm mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                        <input type="text" class="form-control" placeholder="Searching for...." aria-label="Username" aria-describedby="basic-addon1">
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-2 col-md-2 p-0 text-center">
+                                    <button class="create-btn upload-btn btn" (click)="open(upload)">
+                                        <img src="../../../assets/icons/upload.svg" alt=""> Upload file
+                                    </button>
+                                </div>
+                                <div class="col-10 col-md-10 p-0 align-self-start">
+                                    <div class="row justify-content-between">
+                                        <div class="col-3 col-md-3">
+                                            <div class="file-text">
+                                                <h5>Folders & Files</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 col-md-3 text-center">
+                                          <div class="filter-dropdown">
+                                              <div ngbDropdown class="d-inline-block">
+                                                <button type="button" class="btn" id="dropdownBasic1" ngbDropdownToggle>
+                                                  {{ selectedOption }}
+                                                </button>
+                                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                  <button *ngFor="let option of filteredOptions" ngbDropdownItem (click)="selectOption(option)">{{ option }}</button>
+                                                </div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row jusify-content-start">
+                                <div class="col-2 col-md-2 px-6">
+                                    <div class="link-bg">
+                                        <ul class="list-group">
+                                            <li class="list-group-item mt-3"><div class="active">
+                                                <button class="link-btn mt-2"> 
+                                                    <i class="fa-brands fa-google-drive"></i> My Drive
+                                                 </button>
+                                            </div></li>
+                                            <li class="list-group-item">
+                                                <button class="link-btn">
+                                                    <i class="fa-solid fa-laptop"></i> Computer
+                                                </button>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <button class="link-btn">
+                                                    <img src="../../../assets/icons/folder-shared.svg" alt=""> Shared with me
+                                                </button>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <button class="link-btn recent-btn">
+                                                    <img src="../../../assets/icons/ios-timer.svg" alt=""> Recent
+                                                </button>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <button class="link-btn recent-btn">
+                                                    <i class="fa-solid fa-star"></i> Stared
+                                                </button>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <button class="link-btn trash-btn">
+                                                    <img src="../../../assets/icons/ios-trash.svg" alt=""> Trash
+                                                </button>
+                                            </li>
+                                          </ul>
+                                    </div>
+                                </div>
+                                <div class="col-10 col-md-10 p-0">
+                                    <div class="drop-file">
+                                       <div class="drop-img mt-5">
+                                        <img src="../../../assets/login-images/fileupload.svg" class="img-fluid" alt="">
+                                       </div>
+                                        <div class="drop-text">
+                                            <p>Drag and Drop Files here <br>
+                                                or Click to upload button/create folder</p>
+                                        </div>
+                                    </div>
+                                    <div class="folder-container">
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <div class="new-card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="folder-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                    </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="folder-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           <div class="file-info">
+                                                            <p>0 files</p>
+                                                           </div>
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-md-12 mt-2">
+                                                <div class="content-details">
+                                                    <h6>Folder Name 1</h6>
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                              <tr>
+                                                                <th>Name</th>
+                                                                <th>Last modified</th>
+                                                                <th>ID</th>
+                                                                <th>Owner</th>
+                                                                <th>Access</th>
+                                                                <th>Options</th>
+                                                              </tr>
+                                                            </thead>
+                                                            <!-- <tbody>
+                                                              <tr>
+                                                                <td scope="row">1</td>
+                                                                <td>Mark</td>
+                                                                <td>Otto</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td scope="row">2</td>
+                                                                <td>Jacob</td>
+                                                                <td>Thornton</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td scope="row">3</td>
+                                                                <td>Larry the Bird</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td scope="row">3</td>
+                                                                <td >Larry the Bird</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td scope="row">3</td>
+                                                                <td >Larry the Bird</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td scope="row">3</td>
+                                                                <td>Larry the Bird</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td scope="row">3</td>
+                                                                <td >Larry the Bird</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td scope="row">3</td>
+                                                                <td >Larry the Bird</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td scope="row">3</td>
+                                                                <td >Larry the Bird</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td scope="row">3</td>
+                                                                <td >Larry the Bird</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                              </tr>
+                                                            </tbody> -->
+                                                          </table>
+                                                    </div>
+                                                    <div class="table-darg text-center">
+                                                        <img src="../../../assets/login-images/fileupload.svg" alt="">
+                                                        <p>Drag and Drop Files here or Click to upload button</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="files-container">
+                                        <div class="row gx-1 pe-3">
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <img src="../../../assets/icons/excel.svg" alt="" class="img-fluid">
+                                                                <!-- <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span> -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>File Name 1</h6>
+                                                             <p>File ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <!-- <p>5 files</p> -->
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <img src="../../../assets/icons/imageicon.svg" style="width: 55%;" alt="" class="img-fluid">
+                                                                <!-- <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span> -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>File Name 2</h6>
+                                                             <p>File ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <!-- <p>5 files</p> -->
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <img src="../../../assets/icons/pdficon.svg" style="width: 39%;" alt="" class="img-fluid">
+                                                                <!-- <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span> -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>File Name 3</h6>
+                                                             <p>File ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <!-- <p>5 files</p> -->
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <img src="../../../assets/icons/excel.svg" alt="" class="img-fluid">
+                                                                <!-- <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span> -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>File Name 1</h6>
+                                                             <p>File ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <!-- <p>5 files</p> -->
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <img src="../../../assets/icons/imageicon.svg" style="width: 55%;" alt="" class="img-fluid">
+                                                                <!-- <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span> -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>File Name 2</h6>
+                                                             <p>File ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <!-- <p>5 files</p> -->
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <img src="../../../assets/icons/pdficon.svg" style="width: 39%;" alt="" class="img-fluid">
+                                                                <!-- <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span> -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>File Name 3</h6>
+                                                             <p>File ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6" style="padding: 12px 0px;">
+                                                                <!-- <p>5 files</p> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <img src="../../../assets/icons/excel.svg" alt="" class="img-fluid">
+                                                                <!-- <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span> -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>File Name 1</h6>
+                                                             <p>File ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6 " style="padding: 12px 0px;">
+                                                                <!-- <p>5 files</p> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <img src="../../../assets/icons/imageicon.svg" style="width: 55%;" alt="" class="img-fluid">
+                                                                <!-- <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span> -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>File Name 2</h6>
+                                                             <p>File ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6" style="padding: 12px 0px;">
+                                                                <!-- <p>5 files</p> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="card" style="width: 9rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <img src="../../../assets/icons/pdficon.svg" style="width: 39%;" alt="" class="img-fluid">
+                                                                <!-- <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span> -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>File Name 3</h6>
+                                                             <p>File ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6" style="padding: 12px 0px;">
+                                                                <!-- <p>5 files</p> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="folderinfo-container">
+                                        <div class="row gx-5">
+                                            <div class="col-1 me-6">
+                                                <div class="new-card" style="width: 8rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="folder-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                    </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="folder-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           <div class="file-info">
+                                                            <p>0 files</p>
+                                                           </div>
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-1 me-6">
+                                                <div class="card" style="width: 8rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-1 me-6">
+                                                <div class="card" style="width: 8rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-1 me-6">
+                                                <div class="card" style="width: 8rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-1 me-6">
+                                                <div class="card" style="width: 8rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-1 me-6">
+                                                <div class="card" style="width: 8rem;">
+                                                    <div class="card-body">
+                                                       <div class="row">
+                                                        <div class="col-6 m-0 p-0 ps-1 text-start">
+                                                            <div class="file-img">
+                                                                <span class="material-symbols-outlined">
+                                                                    folder
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 m-0 p-0 text-end">
+                                                            <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 m-0 p-0 text-start">
+                                                           <div class="files-details">
+                                                             <h6>Folder Name 1</h6>
+                                                             <p>Folder ID - AB2222</p>
+                                                             <p>11 November,2022</p>
+                                                           </div>
+                                                           
+                                                        </div>
+                                                       </div>
+                                                    </div>
+                                                    <div class="file-info">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p>5 files</p>
+                                                            </div>
+                                                            <div class="col-6 text-center">
+                                                                <img src="../../../assets/login-images/sharedpeople.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-1">
+                                                <div class="card">
+                                                    <div class="view-card">
+                                                        <button class="btn view-btn">View All Files</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-md-12 mt-2">
+                                                <div class="content-details">
+                                                    <h6>Folder Name 1</h6>
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                              <tr>
+                                                                <th>Name</th>
+                                                                <th>Last modified</th>
+                                                                <th>ID</th>
+                                                                <th>Owner</th>
+                                                                <th>Access</th>
+                                                                <th>Options</th>
+                                                              </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                              <tr>
+                                                                <td><img src="../../../assets/icons/google-sheets.png" class="sheet-img" 
+                                                                    style="margin-right: 10px;" alt=""> Excel File</td>
+                                                                <td>13-11-2022</td>
+                                                                <td>ZX3344</td>
+                                                                <td>XYZAABB</td>
+                                                                <td> <img src="../../../assets/login-images/sharedpeople.png" alt="" class="shared-img"></td>
+                                                                <td>
+                                                                    <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <img src="../../../assets/icons/options.svg" alt="" class="">
+                                                                        <!-- <i class="fa-solid fa-sliders"></i> -->
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                </td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td> 
+                                                                    <img src="../../../assets/icons/docs.png" class="sheet-img" 
+                                                                    style="margin-right: 10px;" alt=""> Word File
+                                                                </td>
+                                                                <td>14-11-2022</td>
+                                                                <td>ZX3344</td>
+                                                                <td>XYZAABB</td>
+                                                                <td> <img src="../../../assets/login-images/sharedpeople.png" alt="" class="shared-img"></td>
+                                                                <td>
+                                                                    <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <img src="../../../assets/icons/options.svg" alt="" class="">
+                                                                        <!-- <i class="fa-solid fa-sliders"></i> -->
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                </td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>
+                                                                    <img src="../../../assets/icons/pdf.png" class="sheet-img" style="margin-right: 10px;" alt=""> Consulting.pdf
+                                                                </td>
+                                                                <td>13-11-2022</td>
+                                                                <td>ZX3344</td>
+                                                                <td>XYZAABB</td>
+                                                                <td> <img src="../../../assets/login-images/sharedpeople.png" alt="" class="shared-img"></td>
+                                                                <td>
+                                                                    <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <img src="../../../assets/icons/options.svg" alt="" class="">
+                                                                        <!-- <i class="fa-solid fa-sliders"></i> -->
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                </td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>
+                                                                    <img src="../../../assets/icons/google-forms.png" class="sheet-img" style="margin-right: 10px;" alt=""> Form - RP Labs</td>
+                                                                <td>15-11-2022</td>
+                                                                <td>ZX3344</td>
+                                                                <td>XYZAABB</td>
+                                                                <td> <img src="../../../assets/login-images/sharedpeople.png" alt="" class="shared-img"></td>
+                                                                <td>
+                                                                    <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <img src="../../../assets/icons/options.svg" alt="" class="">
+                                                                        <!-- <i class="fa-solid fa-sliders"></i> -->
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                </td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td><img src="../../../assets/icons/google.png" class="sheet-img" style="margin-right: 10px;" alt=""> DMS Slides</td>
+                                                                <td>15-11-2022</td>
+                                                                <td>ZX3344</td>
+                                                                <td>XYZAABB</td>
+                                                                <td> <img src="../../../assets/login-images/sharedpeople.png" alt="" class="shared-img"></td>
+                                                                <td>
+                                                                    <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <img src="../../../assets/icons/options.svg" alt="" class="">
+                                                                        <!-- <i class="fa-solid fa-sliders"></i> -->
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                </td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td><img src="../../../assets/icons/google-sheets.png" class="sheet-img" style="margin-right: 10px;" alt=""> Excel File</td>
+                                                                <td>16-11-2022</td>
+                                                                <td>ZX3344</td>
+                                                                <td>XYZAABB</td>
+                                                                <td> <img src="../../../assets/login-images/sharedpeople.png" alt="" class="shared-img"></td>
+                                                                <td>
+                                                                    <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <img src="../../../assets/icons/options.svg" alt="" class="">
+                                                                        <!-- <i class="fa-solid fa-sliders"></i> -->
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                </td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td> 
+                                                                    <img src="../../../assets/icons/docs.png" class="sheet-img" style="margin-right: 10px;" alt=""> Word File
+                                                                </td>
+                                                                <td>13-11-2022</td>
+                                                                <td>ZX3344</td>
+                                                                <td>XYZAABB</td>
+                                                                <td> <img src="../../../assets/login-images/sharedpeople.png" alt="" class="shared-img"></td>
+                                                                <td>
+                                                                    <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <img src="../../../assets/icons/options.svg" alt="" class="">
+                                                                        <!-- <i class="fa-solid fa-sliders"></i> -->
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                </td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>
+                                                                    <img src="../../../assets/icons/pdf.png" class="sheet-img" style="margin-right: 10px;" alt=""> Consulting.pdf
+                                                                </td>
+                                                                <td>17-11-2022</td>
+                                                                <td>ZX3344</td>
+                                                                <td>XYZAABB</td>
+                                                                <td> <img src="../../../assets/login-images/sharedpeople.png" alt="" class="shared-img"></td>
+                                                                <td>
+                                                                    <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <img src="../../../assets/icons/options.svg" alt="" class="">
+                                                                        <!-- <i class="fa-solid fa-sliders"></i> -->
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                </td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>
+                                                                    <img src="../../../assets/icons/google-forms.png" class="sheet-img" style="margin-right: 10px;" alt=""> Form - RP Labs</td>
+                                                                <td>20-11-2022</td>
+                                                                <td>ZX3344</td>
+                                                                <td>XYZAABB</td>
+                                                                <td> <img src="../../../assets/login-images/sharedpeople.png" alt="" class="shared-img"></td>
+                                                                <td>
+                                                                    <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <img src="../../../assets/icons/options.svg" alt="" class="">
+                                                                        <!-- <i class="fa-solid fa-sliders"></i> -->
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                </td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td><img src="../../../assets/icons/google.png" class="sheet-img" style="margin-right: 10px;" alt=""> DMS Slides</td>
+                                                                <td>11-11-2022</td>
+                                                                <td>ZX3344</td>
+                                                                <td>XYZAABB</td>
+                                                                <td> <img src="../../../assets/login-images/sharedpeople.png" alt="" class="shared-img"></td>
+                                                                <td>
+                                                                    <div class="menu-btn">
+                                                                <div ngbDropdown class="d-inline-block">
+                                                                    <button type="button" class="btn three-menu" id="dropdownBasic1" ngbDropdownToggle>
+                                                                        <img src="../../../assets/icons/options.svg" alt="" class="">
+                                                                        <!-- <i class="fa-solid fa-sliders"></i> -->
+                                                                    </button>
+                                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                </td>
+                                                              </tr>
+                                                             
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                    <!-- <div class="table-darg text-center">
+                                                        <img src="../../../assets/login-images/fileupload.svg" alt="">
+                                                        <p>Drag and Drop Files here or Click to upload button</p>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<ng-template #content let-modal>
+	<div class="modal-header text-center">
+		<h4 class="modal-title w-100">Create New Folder</h4>
+        <button class="btn close-btn" (click)="modal.dismiss('Cross click')"><img src="../../../assets/icons/cancel.svg" alt="" style="width: 17px;"></button>
+	</div>
+	<div class="modal-body mb-3">
+		<div class="row justify-content-center">
+            <div class="col-7 text-center">
+                <input type="text" class="form-control text-center border-0" placeholder="Folder Name">
+                <button class="btn create-btn mt-4"> Create Folder</button>
+            </div>
+        </div>
+	</div>
+</ng-template>
+
+<ng-template #upload let-modal>
+	<div class="modal-header text-center">
+		<h4 class="modal-title w-100">Upload Folder/File</h4>
+        <button class="btn close-btn" (click)="modal.dismiss('Cross click')"><img src="../../../assets/icons/cancel.svg" alt="" style="width: 17px;"></button>
+	</div>
+	<div class="modal-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="drag-container text-center">
+                   <div class="drag-img">
+                      <img src="../../../assets/login-images/fileupload.svg" alt="" class="img-fluid ">
+                   </div>
+                   <div class="drag-text">
+                      <p>Drag and Drop Files/Folders here
+                        <br>or Click to upload button/create folder</p>
+                   </div>
+                </div>
+            </div>
+            <div class="col-12 text-center mt-3">
+                <button class="btn btn-outline-primary me-3">Cancle</button>
+                <button class="btn btn-primary">Contune</button>
+            </div>
+        </div>
+	</div>
+</ng-template>
