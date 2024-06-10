@@ -280,9 +280,9 @@
                                                                         <i class="fa-solid fa-ellipsis-vertical"></i>
                                                                     </button>
                                                                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                                                        <button ngbDropdownItem><img src="../../../assets/icons/pen.svg" alt=""> Edit</button>
-                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Delete.svg" alt=""> Delete</button>
-                                                                        <button ngbDropdownItem><img src="../../../assets/icons/Download.svg" alt=""> Download</button>
+                                                                        <button ngbDropdownItem><img src="../../assets/icons/pen.svg" alt=""> Edit</button>
+                                                                        <button ngbDropdownItem><img src="../../assets/icons/Delete.svg" alt=""> Delete</button>
+                                                                        <button ngbDropdownItem><img src="../../assets/icons/Download.svg" alt=""> Download</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1826,7 +1826,7 @@
                 </div>
             </div>
             <div class="col-12 text-center mt-3">
-                <button class="btn btn-outline-primary me-3">Cancle</button>
+                <button class="btn btn-outline-primary me-3" (click)="modal.dismiss('Cross click')">Cancle</button>
                 <button class="btn btn-primary">Contune</button>
             </div>
         </div>
