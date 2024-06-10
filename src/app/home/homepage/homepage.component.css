@@ -62,3 +62,23 @@ width: 90px;
   .table > tbody > tr:nth-child(n+1)>td:nth-child(6){
     text-align: end;
   }
+  @media only screen and (min-width:1366px){
+    .content-details table thead tr th{
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .content-details table tbody tr td{
+        font-size: 14px;
+        padding: 10px 4px !important;
+    }
+  }
+  @media only screen and (min-width:1440px){
+    .content-details table thead tr th{
+        font-size: 14px;
+        font-weight:500;
+    }
+    .content-details table tbody tr td{
+        font-size: 14px;
+        padding: 8px 4px !important;
+    }
+  }
